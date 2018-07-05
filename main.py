@@ -149,19 +149,19 @@ print('starting fiberassign')
 subprocess.call(cmd.split())
 print('finished fiberassign')
 
-zcat_bright = 'data/zcat.fits'
-if not os.path.exists(zcat_bright):
-    tile_files = glob.glob('output/tile_*.fits')
-    if len(tile_files):
-        print('{} files to gather'.format(len(tile_files)))
+#zcat_bright = 'data/zcat.fits'
+#if not os.path.exists(zcat_bright):
+#    tile_files = glob.glob('output/tile_*.fits')
+#    if len(tile_files):
+#        print('{} files to gather'.format(len(tile_files)))
 
-        print('reading mtl')
-        mtl = Table.read('data/mtl.fits')
-        print('reading truth')
-        truth = Table.read('data/truth.fits')
+#        print('reading mtl')
+#        mtl = Table.read('data/mtl.fits')
+#        print('reading truth')
+#        truth = Table.read('data/truth.fits')
 
-        print('making zcat')
-        zcat = quickcat(tile_files, mtl, truth, perfect=True)
-        print('writing zcat')
-        zcat.write(zcat_bright, overwrite=True)
-        print('finished zcat')
+#        print('making zcat')
+#        zcat = quickcat(tile_files, mtl, truth, perfect=True)
+#        print('writing zcat')
+#        zcat.write(zcat_bright, overwrite=True)
+#        print('finished zcat')
