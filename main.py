@@ -10,7 +10,7 @@ from desisim.quickcat import quickcat
 
 # target selection
 os.environ['DECALS_PATH'] = '/project/projectdirs/desi/target/catalogs/'
-targetfile = os.path.join(os.environ['DECALS_PATH'], "targets-dr6-0.20.0.fits")
+targetfile = os.path.join(os.environ['DECALS_PATH'], "targets-dr5-0.20.0.fits")
 
 
 if not os.path.exists(targetfile):
@@ -140,7 +140,7 @@ if not os.path.exists(output_bright):
     
 cmd = "fiberassign --mtl data/mtl.fits "
 cmd += " --sky data/dense_sky.fits "
-cmd += " --stdstar data/std-dark.fits "
+cmd += " --stdstar data/std-bright.fits "
 cmd += " --fibstatusfile data/fiberstatus.ecsv"
 cmd += " --footprint data/bgs_sv.fits " 
 cmd += " --outdir output/ "
