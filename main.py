@@ -146,7 +146,8 @@ cmd += " --footprint data/bgs_sv.fits "
 cmd += " --outdir output/ "
 print(cmd)
 print('starting fiberassign')
-subprocess.call(cmd.split())
+os.system(cmd)
+#subprocess.call(cmd.split())
 print('finished fiberassign')
 
 #zcat_bright = 'data/zcat.fits'
