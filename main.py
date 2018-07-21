@@ -117,7 +117,7 @@ if not os.path.exists(mtlfile):
 if not os.path.exists(darkfile):
     darkstd = (targetdata['DESI_TARGET'] & desi_mask.mask('STD_FSTAR|STD_WD')) != 0
     darkdata = targetdata[darkstd]
-    obscond = np.zeros(len(darkdata), dtype=np.int64)
+    obscond = np.ones(len(darkdata), dtype=np.int64)
     darkdata = np.lib.recfunctions.append_fields(
     darkdata, 'OBSCONDITIONS', obscond)
     fitsio.write(darkfile, darkdata, extname='STD')
@@ -127,7 +127,7 @@ if not os.path.exists(darkfile):
 if not os.path.exists(brightfile):
     brightstd = (targetdata['DESI_TARGET'] & desi_mask.mask('STD_BRIGHT')) != 0
     brightdata = targetdata[brightstd]
-    obscond = np.zeros(len(brightdata), dtype=np.int64)
+    obscond = np.int_(np.repeat(4, len(brightdata)))
     brightdata = np.lib.recfunctions.append_fields(
     brightdata, 'OBSCONDITIONS', obscond)
     fitsio.write(brightfile, brightdata, extname='STD')
