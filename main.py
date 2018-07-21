@@ -106,6 +106,10 @@ if not os.path.exists(mtlfile):
     import desitarget.mtl
     mtl = desitarget.mtl.make_mtl(targetdata)
     mtl.meta['EXTNAME'] = 'MTL'
+
+    # rewrite NUMOBS for BGS targets
+    ii = mtl['BGS_TARGET']!=0
+    mtl['NUMOBS_MORE'][ii] = 4
     mtl.write(mtlfile)
 
     #print some stats
